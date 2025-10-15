@@ -1,0 +1,17 @@
+package dev.matheuslf.desafio.inscritos.application.usecases;
+
+import dev.matheuslf.desafio.inscritos.domain.model.Task;
+import dev.matheuslf.desafio.inscritos.domain.repositories.TaskRepository;
+
+public class UpdateTaskUseCase {
+    private final TaskRepository repository;
+
+    public UpdateTaskUseCase(TaskRepository repository) {
+        this.repository = repository;
+    }
+
+    public void execute(Task task) {
+        this.repository.updateStatus(task);
+    }
+
+}

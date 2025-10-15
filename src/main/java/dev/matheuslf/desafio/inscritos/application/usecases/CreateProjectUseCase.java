@@ -4,7 +4,7 @@ import dev.matheuslf.desafio.inscritos.domain.model.Project;
 import dev.matheuslf.desafio.inscritos.domain.repositories.ProjectRepository;
 
 public class CreateProjectUseCase {
-    private ProjectRepository repository;
+    private final ProjectRepository repository;
 
     public CreateProjectUseCase(ProjectRepository repository){
         this.repository = repository;
