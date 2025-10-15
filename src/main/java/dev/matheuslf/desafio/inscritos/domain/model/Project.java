@@ -14,6 +14,7 @@ public class Project {
     private Project (Builder builder) {
         this.validateDate(builder.startDate, builder.endDate);
         this.validateName(builder.name);
+        this.id = builder.id;
         this.name = builder.name;
         this.description = builder.description;
         this.startDate = builder.startDate;
@@ -21,6 +22,7 @@ public class Project {
     }
 
     public static class Builder {
+        private Long id;
         private String name;
         private String description = null;
         private LocalDate startDate;
@@ -29,6 +31,11 @@ public class Project {
         public Builder (String name, LocalDate startDate) {
             this.name = name;
             this.startDate = startDate;
+        }
+
+        public Builder id(Long id) {
+            this.id = id;
+            return this;
         }
 
         public Builder description(String description) {
