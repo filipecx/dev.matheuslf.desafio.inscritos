@@ -13,6 +13,7 @@ public class Task {
     private Status status;
     private Priority priority;
     private LocalDate dueDate;
+    private Long projectId;
 
     public Task(String title, String description, Status status, Priority priority, LocalDate dueDate) {
         this.validateTitle(title);
@@ -21,6 +22,16 @@ public class Task {
         this.status = status;
         this.priority = priority;
         this.dueDate = dueDate;
+    }
+
+    public Task(String title, String description, Status status, Priority priority, LocalDate dueDate, Long projectId) {
+        this.validateTitle(title);
+        this.title = title;
+        this.description = description;
+        this.status = status;
+        this.priority = priority;
+        this.dueDate = dueDate;
+        this.projectId = projectId;
     }
 
     public String getTitle() {
@@ -41,6 +52,14 @@ public class Task {
 
     public LocalDate getDueDate() {
         return this.dueDate;
+    }
+
+    public Long getProjectId() {
+        return this.projectId;
+    }
+
+    public void setProjectId(Long id) {
+        this.projectId = id;
     }
 
     public void changeTitle(String newTitle) {
