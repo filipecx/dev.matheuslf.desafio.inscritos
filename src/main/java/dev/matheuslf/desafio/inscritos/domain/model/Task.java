@@ -15,6 +15,7 @@ public class Task {
     private LocalDate dueDate;
     private Long projectId;
 
+
     public Task(String title, String description, Status status, Priority priority, LocalDate dueDate) {
         this.validateTitle(title);
         this.title = title;
@@ -22,16 +23,6 @@ public class Task {
         this.status = status;
         this.priority = priority;
         this.dueDate = dueDate;
-    }
-
-    public Task(String title, String description, Status status, Priority priority, LocalDate dueDate, Long projectId) {
-        this.validateTitle(title);
-        this.title = title;
-        this.description = description;
-        this.status = status;
-        this.priority = priority;
-        this.dueDate = dueDate;
-        this.projectId = projectId;
     }
 
     public String getTitle() {

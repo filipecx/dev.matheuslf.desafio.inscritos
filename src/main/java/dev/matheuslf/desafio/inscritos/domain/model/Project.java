@@ -11,6 +11,8 @@ public class Project {
     private LocalDate startDate;
     private LocalDate endDate;
 
+    public Project(){};
+
     private Project (Builder builder) {
         this.validateDate(builder.startDate, builder.endDate);
         this.validateName(builder.name);
