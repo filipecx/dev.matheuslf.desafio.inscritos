@@ -18,11 +18,16 @@ public class Task {
 
     public Task(String title, String description, Status status, Priority priority, LocalDate dueDate) {
         this.validateTitle(title);
+
         this.title = title;
         this.description = description;
         this.status = status;
         this.priority = priority;
         this.dueDate = dueDate;
+    }
+
+    public Long getId() {
+        return this.id;
     }
 
     public String getTitle() {
@@ -51,6 +56,10 @@ public class Task {
 
     public void setProjectId(Long id) {
         this.projectId = id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public void changeTitle(String newTitle) {

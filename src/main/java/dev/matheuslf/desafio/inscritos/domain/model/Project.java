@@ -10,10 +10,10 @@ public class Project {
     private String description;
     private LocalDate startDate;
     private LocalDate endDate;
+/*
+    public Project(){}; */
 
-    public Project(){};
-
-    private Project (Builder builder) {
+    public Project (Builder builder) {
         this.validateDate(builder.startDate, builder.endDate);
         this.validateName(builder.name);
         this.id = builder.id;
