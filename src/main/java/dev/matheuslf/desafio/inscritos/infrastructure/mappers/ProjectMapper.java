@@ -2,19 +2,29 @@ package dev.matheuslf.desafio.inscritos.infrastructure.mappers;
 
 import dev.matheuslf.desafio.inscritos.domain.model.Project;
 import dev.matheuslf.desafio.inscritos.infrastructure.persistence.Entities.ProjectEntity;
-import org.mapstruct.Mapper;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
-@Mapper(componentModel = "spring")
-public interface ProjectMapper {
+@Component
+public class ProjectMapper {
 
-    Project toDomain(ProjectEntity entity);
+    public Project  toDomain(ProjectEntity entity) {
+        return new Project.Builder(entity.getName(), entity.getStartDate()).id(entity.getId()).description(entity.getDescription()).endDate(entity.getEndDate()).build();
+    }
 
-    ProjectEntity toEntity(Project domain);
+    public ProjectEntity toEntity(Project domain) {
+        ProjectEntity projectEntity = new ProjectEntity();
+        projectEntity.setName(domain.getName());
+        projectEntity.setStartDate(domain.getStartDate());
+        projectEntity.setDescription(domain.getDescription());
+        projectEntity.setEndDate(domain.getEndDate());
 
-    List<Project> toDomainList(List<ProjectEntity> entities);
+        return projectEntity;
+    }
 
-    List<ProjectEntity> toJpaEntityList(List<Project> domainList);
+    public List<Project> toDomainList(List<ProjectEntity> listOfEntities) {
 
+        return listOfEntities.stream().map(this::toDomain).toList();
+    }
 }
