@@ -22,9 +22,17 @@ public class TasksEntity {
 
     @Column(name = "title", nullable = false)
     private String title;
+
+    @Column(name = "description")
     private String description;
+
+    @Enumerated(EnumType.STRING)
     private Status status;
+
+    @Enumerated(EnumType.STRING)
     private Priority priority;
+
+
     private LocalDate dueDate;
 
     @ManyToOne

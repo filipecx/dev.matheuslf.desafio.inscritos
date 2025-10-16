@@ -13,6 +13,6 @@ public class GetTasksUseCase {
     }
 
     public List<Task> execute() {
-        return this.repository.getFiltered();
+        return this.repository.getAll();
     }
 }
