@@ -1,7 +1,9 @@
 package dev.matheuslf.desafio.inscritos.application.usecases;
 
 import dev.matheuslf.desafio.inscritos.domain.repositories.TaskRepository;
+import org.springframework.stereotype.Service;
 
+@Service
 public class RemoveTaskUseCase {
     private TaskRepository repository;
 

@@ -3,7 +3,9 @@ package dev.matheuslf.desafio.inscritos.application.usecases;
 import dev.matheuslf.desafio.inscritos.domain.model.Project;
 import dev.matheuslf.desafio.inscritos.domain.model.Task;
 import dev.matheuslf.desafio.inscritos.domain.repositories.TaskRepository;
+import org.springframework.stereotype.Service;
 
+@Service
 public class CreateTaskUseCase {
     private final GetProjectByIdUseCase getProjectByIdUseCase;
     private final TaskRepository repository;
