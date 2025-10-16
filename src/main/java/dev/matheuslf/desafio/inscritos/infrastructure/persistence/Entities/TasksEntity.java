@@ -11,9 +11,9 @@ import lombok.NoArgsConstructor;
 import java.time.LocalDate;
 @Entity
 @Table(name = "tasks")
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
+@Data // ESSENCIAL: Garante Getters e Setters para o MapStruct
+@NoArgsConstructor // ESSENCIAL: Necessário para o JPA (Hibernate)
+@AllArgsConstructor // Opcional, mas útil
 public class TasksEntity {
 
     @Id
@@ -32,14 +32,10 @@ public class TasksEntity {
     @Enumerated(EnumType.STRING)
     private Priority priority;
 
-
+    @Column(name = "due_date")
     private LocalDate dueDate;
 
     @ManyToOne
     @JoinColumn(name = "project_id", nullable = false)
-    private Project project;
-
-    public Long getId() {
-        return this.id;
-    }
+    private ProjectEntity project;
 }
