@@ -38,8 +38,8 @@ class UpdateTaskUseCaseTest {
     void shouldChangStatus() {
         task.setProjectId(1245L);
         task.changeStatus(Status.DONE);
-        this.useCase.execute(task);
-        verify(repository, Mockito.times(1)).updateStatus(task);
+        this.useCase.execute(12l, task.getStatus());
+        verify(repository, Mockito.times(1)).updateStatus(12L, task.getStatus());
     }
 
 }
