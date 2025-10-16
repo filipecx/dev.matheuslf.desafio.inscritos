@@ -10,6 +10,6 @@ public interface TaskRepository {
     Task create(Task task);
     List<Task> getAll();
     List<Task> findByFilters(Status status, Priority priority);
-    void updateStatus(Task task);
+    void updateStatus(Long id, Status status);
     void delete(Long id);
 }
