@@ -7,9 +7,11 @@ import dev.matheuslf.desafio.inscritos.domain.model.enums.Status;
 import dev.matheuslf.desafio.inscritos.domain.repositories.TaskRepository;
 import dev.matheuslf.desafio.inscritos.infrastructure.mappers.TaskMapper;
 import dev.matheuslf.desafio.inscritos.infrastructure.persistence.Entities.TasksEntity;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+@Repository
 public class TaskRepositoryImpl implements TaskRepository {
     private final JpaTaskRepository repository;
     private final TaskMapper mapper;
@@ -47,10 +49,10 @@ public class TaskRepositoryImpl implements TaskRepository {
     }
 
     @Override
-    public void updateStatus(Task task) {
-        TasksEntity taskToUpdate = this.mapper.toEntity(task);
-        this.repository.findById(taskToUpdate.getId())
+    public void updateStatus(Long id, Status status) {
+        TasksEntity taskToUpdate = this.repository.findById(id)
                 .orElseThrow(() -> new NotFoundException("Nenhuma task com esse id encontrada"));
+        taskToUpdate.setStatus(status);
         TasksEntity updatedTask = this.repository.save(taskToUpdate);
     }
 
