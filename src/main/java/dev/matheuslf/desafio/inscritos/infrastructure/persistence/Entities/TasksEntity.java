@@ -38,4 +38,8 @@ public class TasksEntity {
     @ManyToOne
     @JoinColumn(name = "project_id", nullable = false)
     private Project project;
+
+    public Long getId() {
+        return this.id;
+    }
 }
