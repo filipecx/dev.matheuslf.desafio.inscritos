@@ -1,6 +1,7 @@
 package dev.matheuslf.desafio.inscritos.application.usecases;
 
 import dev.matheuslf.desafio.inscritos.domain.model.Task;
+import dev.matheuslf.desafio.inscritos.domain.model.enums.Status;
 import dev.matheuslf.desafio.inscritos.domain.repositories.TaskRepository;
 import org.springframework.stereotype.Service;
 
@@ -12,8 +13,9 @@ public class UpdateTaskUseCase {
         this.repository = repository;
     }
 
-    public void execute(Task task) {
-        this.repository.updateStatus(task);
+    public void execute(Long id, Status status) {
+
+        this.repository.updateStatus(id, status);
     }
 
 }
