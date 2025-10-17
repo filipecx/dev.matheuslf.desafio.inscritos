@@ -1,5 +1,75 @@
 ## 🧠 Desafio Técnico – Sistema de Gestão de Projetos e Demandas
 
+Decidi aproveitar esse desafio pra aplicar algumas coisas que estou estudando enquanto busco minha primeira oportunidade na área.
+Por isso, algumas coisas provavelmente foram feitas de maneira mais complexa do que precisavam 😄
+
+Foi uma oportunidade muito legal também pra conhecer Bean Validations, MapStruct, Swagger, e um pouco de testes e os mocks. Não fiz todos os testes porque já tava me enrolando, e nossa, quanto trabalho dá!
+
+Como o MapStruct tava dando uma cofusão com o padrão builder, que decidi usar um pouco pra aprender, alguns mapeamentos fiz na mão.
+
+O projeto não tem autenticação!
+
+Sem mais delongas...
+Pré-requisitos
+
+Docker
+Docker Compose
+
+---
+
+# Meu Projeto Spring Boot + PostgreSQL (Docker)
+
+Este projeto é uma **API REST em Spring Boot** com banco **PostgreSQL**, configurada para **rodar em desenvolvimento usando Docker e Docker Compose**. Feito para o desafio idealizado por Matheus Leandro Ferreita (Obrigado Matheus!).
+
+---
+
+## Pré-requisitos
+
+* [Docker](https://www.docker.com/get-started) instalado
+* [Docker Compose](https://docs.docker.com/compose/install/)
+* Sistema operacional: Windows, Linux ou macOS (funciona com WSL2 no Windows)
+
+---
+
+## Como rodar
+
+1. Abra o terminal na raiz do projeto.
+
+2. Execute:
+
+```bash
+docker compose up --build
+```
+
+* Isso fará:
+
+  * Baixar as imagens do PostgreSQL e Maven + JDK 17 (se ainda não estiverem localmente)
+  * Construir a imagem da API Spring Boot
+  * Criar e iniciar os containers do banco e da API
+  * Sincronizar seu código local com o container (ideal para desenvolvimento)
+
+3. Acesse:
+
+* API: [http://localhost:8080](http://localhost:8080)
+* Swagger: http://localhost:8080/swagger-ui.html
+* Banco PostgreSQL: localhost:5432 (usuário: `postgres`, senha: `postgres`)
+
+---
+
+## Configurações do banco
+
+As variáveis de conexão estão definidas no `docker-compose.yml`:
+
+```yaml
+environment:
+  SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/meu_banco
+  SPRING_DATASOURCE_USERNAME: postgres
+  SPRING_DATASOURCE_PASSWORD: postgres
+```
+
+O **Hibernate** criará/atualizará as tabelas automaticamente.
+
+### Abaixo, o conteúdo original do readme.
 ### 📘 Contexto
 Sua missão é desenvolver uma **API RESTful em Java com Spring Boot** para gerenciar **projetos e tarefas (demandas)** de uma empresa.  
 O sistema será utilizado por um time de desenvolvimento para organizar suas entregas, acompanhar o status das tarefas e realizar análises simples.
