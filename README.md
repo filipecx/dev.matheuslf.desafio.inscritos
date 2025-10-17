@@ -62,7 +62,7 @@ As variáveis de conexão estão definidas no `docker-compose.yml`:
 
 ```yaml
 environment:
-  SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/meu_banco
+  SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/manager
   SPRING_DATASOURCE_USERNAME: postgres
   SPRING_DATASOURCE_PASSWORD: postgres
 ```
